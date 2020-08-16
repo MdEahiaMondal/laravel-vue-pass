@@ -2753,6 +2753,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Categories",
@@ -2763,6 +2768,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         image: ''
       },
       editCategory: {},
+      moreExist: false,
+      nextPage: '',
       errors: [],
       categories: []
     };
@@ -2784,21 +2791,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 3:
                 res = _context.sent;
+
+                if (res.data.categories.current_page < res.data.categories.last_page) {
+                  this.moreExist = true;
+                  this.nextPage = res.data.categories.current_page + 1;
+                }
+
+                console.log(res);
                 this.categories = res.data.categories.data;
-                _context.next = 10;
+                _context.next = 12;
                 break;
 
-              case 7:
-                _context.prev = 7;
+              case 9:
+                _context.prev = 9;
                 _context.t0 = _context["catch"](0);
                 console.log(_context.t0);
 
-              case 10:
+              case 12:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[0, 7]]);
+        }, _callee, this, [[0, 9]]);
       }));
 
       function loadAllcategories() {
@@ -2807,12 +2821,57 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       return loadAllcategories;
     }(),
-    createCategory: function () {
-      var _createCategory = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var formData, field, res;
+    moreLoad: function () {
+      var _moreLoad = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var res, category;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _context2.next = 3;
+                return _apis_categories__WEBPACK_IMPORTED_MODULE_1__["loadMore"](this.nextPage);
+
+              case 3:
+                res = _context2.sent;
+
+                if (res.data.categories.current_page < res.data.categories.last_page) {
+                  this.moreExist = true;
+                  this.nextPage = res.data.categories.current_page + 1;
+                }
+
+                for (category in res.data.categories.data) {
+                  this.categories.push(res.data.categories.data[category]);
+                }
+
+                _context2.next = 11;
+                break;
+
+              case 8:
+                _context2.prev = 8;
+                _context2.t0 = _context2["catch"](0);
+                console.log(_context2.t0);
+
+              case 11:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this, [[0, 8]]);
+      }));
+
+      function moreLoad() {
+        return _moreLoad.apply(this, arguments);
+      }
+
+      return moreLoad;
+    }(),
+    createCategory: function () {
+      var _createCategory = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var formData, field, res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
               case 0:
                 formData = new FormData();
 
@@ -2820,44 +2879,44 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   formData.append(field, this.category[field]);
                 }
 
-                _context2.prev = 2;
-                _context2.next = 5;
+                _context3.prev = 2;
+                _context3.next = 5;
                 return _apis_categories__WEBPACK_IMPORTED_MODULE_1__["create"](formData);
 
               case 5:
-                res = _context2.sent;
+                res = _context3.sent;
                 this.hideCategory();
                 this.categories.unshift(res.data);
                 this.flashMessage.success({
                   title: 'Category created success',
                   time: 2000
                 });
-                _context2.next = 19;
+                _context3.next = 19;
                 break;
 
               case 11:
-                _context2.prev = 11;
-                _context2.t0 = _context2["catch"](2);
+                _context3.prev = 11;
+                _context3.t0 = _context3["catch"](2);
 
-                if (!(_context2.t0.response.status === 422)) {
-                  _context2.next = 19;
+                if (!(_context3.t0.response.status === 422)) {
+                  _context3.next = 19;
                   break;
                 }
 
-                _context2.t1 = _context2.t0.response.status;
-                _context2.next = _context2.t1 === 422 ? 17 : 19;
+                _context3.t1 = _context3.t0.response.status;
+                _context3.next = _context3.t1 === 422 ? 17 : 19;
                 break;
 
               case 17:
-                this.errors = _context2.t0.response.data.errors;
-                return _context2.abrupt("break", 19);
+                this.errors = _context3.t0.response.data.errors;
+                return _context3.abrupt("break", 19);
 
               case 19:
               case "end":
-                return _context2.stop();
+                return _context3.stop();
             }
           }
-        }, _callee2, this, [[2, 11]]);
+        }, _callee3, this, [[2, 11]]);
       }));
 
       function createCategory() {
@@ -2867,11 +2926,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return createCategory;
     }(),
     updateCategory: function () {
-      var _updateCategory = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+      var _updateCategory = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
         var formData, field, res;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
                 formData = new FormData();
 
@@ -2880,12 +2939,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }
 
                 formData.append('_method', 'put');
-                _context3.prev = 3;
-                _context3.next = 6;
+                _context4.prev = 3;
+                _context4.next = 6;
                 return _apis_categories__WEBPACK_IMPORTED_MODULE_1__["update"](formData, this.editCategory.id);
 
               case 6:
-                res = _context3.sent;
+                res = _context4.sent;
                 this.categories.map(function (item) {
                   if (item.id === res.data.id) {
                     for (var key in res.data) {
@@ -2898,32 +2957,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   title: 'Category updated success',
                   time: 2000
                 });
-                _context3.next = 20;
+                _context4.next = 20;
                 break;
 
               case 12:
-                _context3.prev = 12;
-                _context3.t0 = _context3["catch"](3);
+                _context4.prev = 12;
+                _context4.t0 = _context4["catch"](3);
 
-                if (!(_context3.t0.response.status === 422)) {
-                  _context3.next = 20;
+                if (!(_context4.t0.response.status === 422)) {
+                  _context4.next = 20;
                   break;
                 }
 
-                _context3.t1 = _context3.t0.response.status;
-                _context3.next = _context3.t1 === 422 ? 18 : 20;
+                _context4.t1 = _context4.t0.response.status;
+                _context4.next = _context4.t1 === 422 ? 18 : 20;
                 break;
 
               case 18:
-                this.errors = _context3.t0.response.data.errors;
-                return _context3.abrupt("break", 20);
+                this.errors = _context4.t0.response.data.errors;
+                return _context4.abrupt("break", 20);
 
               case 20:
               case "end":
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3, this, [[3, 12]]);
+        }, _callee4, this, [[3, 12]]);
       }));
 
       function updateCategory() {
@@ -2933,18 +2992,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return updateCategory;
     }(),
     delecteCategory: function () {
-      var _delecteCategory = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(category) {
+      var _delecteCategory = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(category) {
         var res;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context5.prev = _context5.next) {
               case 0:
-                _context4.prev = 0;
-                _context4.next = 3;
+                _context5.prev = 0;
+                _context5.next = 3;
                 return _apis_categories__WEBPACK_IMPORTED_MODULE_1__["destroy"](category.id);
 
               case 3:
-                res = _context4.sent;
+                res = _context5.sent;
                 this.hideCategory();
                 this.categories = this.categories.filter(function (item) {
                   return category.id !== item.id;
@@ -2953,20 +3012,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   title: res.data.message,
                   time: 2000
                 });
-                _context4.next = 12;
+                _context5.next = 12;
                 break;
 
               case 9:
-                _context4.prev = 9;
-                _context4.t0 = _context4["catch"](0);
-                console.log(_context4.t0);
+                _context5.prev = 9;
+                _context5.t0 = _context5["catch"](0);
+                console.log(_context5.t0);
 
               case 12:
               case "end":
-                return _context4.stop();
+                return _context5.stop();
             }
           }
-        }, _callee4, this, [[0, 9]]);
+        }, _callee5, this, [[0, 9]]);
       }));
 
       function delecteCategory(_x) {
@@ -68200,7 +68259,25 @@ var render = function() {
                 )
               ]
             )
-          ])
+          ]),
+          _vm._v(" "),
+          _vm.moreExist
+            ? _c("div", { staticClass: "text-center" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.moreLoad($event)
+                      }
+                    }
+                  },
+                  [_vm._v("Load More")]
+                )
+              ])
+            : _vm._e()
         ])
       ]),
       _vm._v(" "),
@@ -84996,7 +85073,7 @@ function HttpFile() {
 /*!*****************************************!*\
   !*** ./resources/js/apis/categories.js ***!
   \*****************************************/
-/*! exports provided: all, create, destroy, update */
+/*! exports provided: all, create, destroy, update, loadMore */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -85005,6 +85082,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "create", function() { return create; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "destroy", function() { return destroy; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "update", function() { return update; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadMore", function() { return loadMore; });
 /* harmony import */ var _apis__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./apis */ "./resources/js/apis/apis.js");
 
 function all() {
@@ -85018,6 +85096,9 @@ function destroy(id) {
 }
 function update(data, id) {
   return Object(_apis__WEBPACK_IMPORTED_MODULE_0__["HttpFile"])().post("/categories/".concat(id), data);
+}
+function loadMore(nextPage) {
+  return Object(_apis__WEBPACK_IMPORTED_MODULE_0__["api"])().get("/categories?page=".concat(nextPage));
 }
 
 /***/ }),

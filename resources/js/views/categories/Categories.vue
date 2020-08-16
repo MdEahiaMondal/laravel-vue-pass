@@ -38,6 +38,11 @@
                         </tbody>
                     </table>
                 </div>
+
+                <div class="text-center" v-if="moreExist">
+                    <button class="btn btn-primary" @click.prevent="moreLoad">Load More</button>
+                </div>
+
             </div>
         </div>
 
@@ -97,6 +102,8 @@ export default {
             editCategory: {
 
             },
+            moreExist: false,
+            nextPage: '',
             errors: [],
             categories: []
         }
@@ -109,10 +116,29 @@ export default {
         {
            try {
                let res = await categories.all()
+               if (res.data.categories.current_page < res.data.categories.last_page){
+                   this.moreExist = true
+                   this.nextPage = res.data.categories.current_page + 1
+               }
+               console.log(res)
                this.categories = res.data.categories.data
            }catch (error){
                console.log(error)
            }
+        },
+        moreLoad:async function(){
+            try {
+                let res =  await categories.loadMore(this.nextPage)
+                if (res.data.categories.current_page < res.data.categories.last_page){
+                    this.moreExist = true
+                    this.nextPage = res.data.categories.current_page + 1
+                }
+                for (const category in res.data.categories.data){
+                    this.categories.push(res.data.categories.data[category])
+                }
+            }catch (error){
+                console.log(error)
+            }
         },
         createCategory: async function ()
         {

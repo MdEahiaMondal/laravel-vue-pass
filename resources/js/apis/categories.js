@@ -21,6 +21,11 @@ export function update(data, id)
     return HttpFile().post(`/categories/${id}`, data)
 }
 
+export function loadMore(nextPage)
+{
+    return api().get(`/categories?page=${nextPage}`)
+}
+
 
 
 

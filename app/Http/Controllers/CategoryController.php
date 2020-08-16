@@ -11,7 +11,7 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $categories = Category::orderBy('id', 'desc')->paginate(10);
+        $categories = Category::orderBy('id', 'desc')->paginate(2);
         return response()->json([
             'categories' => $categories,
             'status_code' => 200
