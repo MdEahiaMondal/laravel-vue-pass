@@ -93,6 +93,12 @@ name: "Register",
            try {
               await auth.register(this.register)
                .then(res => {
+                   this.errors = []
+                   this.flashMessage.success({
+                       title: 'User created success',
+                       time: 2000
+                   });
+                   this.$router.push('/login')
                    console.log(res)
                })
            }catch (error){

@@ -9,6 +9,8 @@ import Register from "../views/auth/Register";
 import Login from "../views/auth/Login";
 import ForgotPassword from "../views/auth/ForgotPassword";
 
+import * as auth from '../apis/auth'
+
 const routes = [
     {
         path: '/admin',
@@ -23,14 +25,35 @@ const routes = [
                 component: Categories
             },
         ],
+        beforeEnter(to, from, next){
+            if (!auth.isLogedIn()) {
+                next('/login')
+            } else {
+                next()
+            }
+        }
     },
     {
         path: '/register',
-        component: Register
+        component: Register,
+        beforeEnter(to, from, next) {
+            if (auth.isLogedIn()) {
+                next('/admin')
+            } else {
+                next()
+            }
+        }
     },
     {
         path: '/login',
-        component: Login
+        component: Login,
+        beforeEnter(to, from, next) {
+            if (auth.isLogedIn()) {
+                next('/admin')
+            } else {
+                next()
+            }
+        }
     },
     {
         path: '/forgot-password',
