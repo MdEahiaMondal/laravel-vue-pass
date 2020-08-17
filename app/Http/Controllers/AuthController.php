@@ -54,9 +54,9 @@ class AuthController extends Controller
 
         if ($user->role == 'administrator')
         {
-            $tokenData = $user->createToken('Personal Access Token', ['can_everything']);
+            $tokenData = $user->createToken('Personal Access Token', ['do_everything']);
         }else{
-            $tokenData = $user->createToken('Personal Access Token', ['can_create']);
+            $tokenData = $user->createToken('Personal Access Token', ['do_create']);
         }
         $token = $tokenData->token;
         if ($request->remember_me){
@@ -77,11 +77,7 @@ class AuthController extends Controller
                 'status_code' => 200
             ], 200);
         }
-
-
-
     }
-
 
     public function logout(Request  $request)
     {

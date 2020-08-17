@@ -21,8 +21,29 @@ Route::group(['prefix' => 'auth'], function(){
     Route::group(['middleware' => 'auth:api'], function(){
         Route::get('logout', 'AuthController@logout');
     });
-
 });
+
+Route::group(['prefix' => 'user'], function(){
+    Route::group(['middleware' => 'auth:api'], function(){
+        Route::get('edit-category', function (){
+            return response()->json([
+                'message' => 'admin_access',
+                'status_code' => 200
+            ], 200);
+        })->middleware(['scopes:do_everything']);
+
+        Route::get('show-category', function (){
+            return response()->json([
+                'message' => 'author_access',
+                'status_code' => 200
+            ], 200);
+        })->middleware(['scope:do_create,do_everything']);
+    });
+});
+
+
+
+
 
 Route::apiResource('categories', 'CategoryController');
 Route::get('test', 'CategoryController@test');
