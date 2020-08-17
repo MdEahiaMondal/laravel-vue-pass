@@ -19,15 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61ea6b2b-a855-4de9-88df-1aa2dce52284" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/laravuepassport.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravuepassport.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="61ea6b2b-a855-4de9-88df-1aa2dce52284" name="Default Changelist" comment="install passport and setup">
+      <change afterPath="$PROJECT_DIR$/.rnd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,12 +171,15 @@
     <option name="showPreview" value="true" />
   </component>
   <component name="ProjectId" id="1g85oaE3fYq6j2CGsvlECTgbPsQ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -211,8 +211,16 @@
       <updated>1597483554384</updated>
       <workItem from="1597483555481" duration="15006000" />
       <workItem from="1597548932730" duration="28108000" />
-      <workItem from="1597623000801" duration="1518000" />
+      <workItem from="1597623000801" duration="6752000" />
     </task>
+    <task id="LOCAL-00001" summary="install passport and setup">
+      <created>1597639430258</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1597639430258</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,6 +236,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="install passport and setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="install passport and setup" />
   </component>
   <component name="WindowStateProjectService">
     <state x="322" y="241" key="#Composer" timestamp="1597483654939">
@@ -250,5 +263,9 @@
       <screen x="0" y="0" width="1024" height="728" />
     </state>
     <state x="13" y="9" key="SettingsEditor/0.0.1024.728@0.0.1024.728" timestamp="1597639251131" />
+    <state x="104" y="93" key="Vcs.Push.Dialog.v2" timestamp="1597639433064">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state x="104" y="93" key="Vcs.Push.Dialog.v2/0.0.1024.728@0.0.1024.728" timestamp="1597639433064" />
   </component>
 </project>
