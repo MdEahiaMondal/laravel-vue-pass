@@ -20,11 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61ea6b2b-a855-4de9-88df-1aa2dce52284" name="Default Changelist" comment="install passport and setup">
+      <change afterPath="$PROJECT_DIR$/resources/js/views/Home.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/RightSideBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/RightSideBar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/router/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/Welcome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Dashboard.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +42,8 @@
       <list>
         <option value="composer.json" />
         <option value="CSS File" />
-        <option value="Vue Single File Component" />
         <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -211,7 +213,7 @@
       <updated>1597483554384</updated>
       <workItem from="1597483555481" duration="15006000" />
       <workItem from="1597548932730" duration="28108000" />
-      <workItem from="1597623000801" duration="10417000" />
+      <workItem from="1597623000801" duration="13448000" />
     </task>
     <task id="LOCAL-00001" summary="install passport and setup">
       <created>1597639430258</created>

@@ -3,10 +3,10 @@
         <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
             <div class="sb-sidenav-menu">
                 <div class="nav">
-                    <router-link to="/" class="nav-link">
+                    <router-link to="/admin" class="nav-link">
                         Dashboard
                     </router-link>
-                    <router-link to="/categories" class="nav-link">
+                    <router-link to="admin/categories" class="nav-link">
                         categories
                     </router-link>
                 </div>

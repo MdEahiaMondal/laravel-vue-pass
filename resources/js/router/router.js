@@ -2,18 +2,26 @@ import Vue from 'vue'
 import VueRouter from "vue-router";
 Vue.use(VueRouter)
 
-import Welcome from "../views/Welcome";
+import Dashboard from "../views/Dashboard";
 import Categories from "../views/categories/Categories";
+import Home  from "../views/Home";
 
 const routes = [
     {
-        path: '/',
-        component: Welcome
+        path: '/admin',
+        component: Home,
+        children: [
+            {
+                path: 'sdfsd',
+                component: Dashboard
+            },
+            {
+                path: 'categories',
+                component: Categories
+            },
+        ]
     },
-    {
-        path: '/categories',
-        component: Categories
-    },
+
 ]
 
 const router = new VueRouter({
