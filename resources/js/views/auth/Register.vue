@@ -8,40 +8,39 @@
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
                                 <div class="card-body">
-                                    <form>
+                                    <form @submit.prevent="userRegister">
                                         <div class="form-row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="small mb-1" for="inputFirstName">First Name</label>
-                                                    <input class="form-control py-4" id="inputFirstName" type="text" placeholder="Enter first name" />
+                                                    <input class="form-control py-4" v-model="register.name" id="inputFirstName" type="text" placeholder="Enter first name" />
+                                                    <small class="text-danger" v-if="errors.name">{{ errors.name[0] }}</small>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="small mb-1" for="inputLastName">Last Name</label>
-                                                    <input class="form-control py-4" id="inputLastName" type="text" placeholder="Enter last name" />
+                                                    <label class="small mb-1" for="inputEmailAddress">Email</label>
+                                                    <input class="form-control py-4" v-model="register.email" id="inputEmailAddress" type="email" aria-describedby="emailHelp" placeholder="Enter email address" />
+                                                    <small class="text-danger" v-if="errors.email">{{ errors.email[0] }}</small>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                            <input class="form-control py-4" id="inputEmailAddress" type="email" aria-describedby="emailHelp" placeholder="Enter email address" />
                                         </div>
                                         <div class="form-row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="small mb-1" for="inputPassword">Password</label>
-                                                    <input class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" />
+                                                    <input class="form-control py-4" v-model="register.password" id="inputPassword" type="password" placeholder="Enter password" />
+                                                    <small class="text-danger" v-if="errors.password">{{ errors.password[0] }}</small>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="small mb-1" for="inputConfirmPassword">Confirm Password</label>
-                                                    <input class="form-control py-4" id="inputConfirmPassword" type="password" placeholder="Confirm password" />
+                                                    <input class="form-control py-4" v-model="register.password_confirmation" id="inputConfirmPassword" type="password" placeholder="Confirm password" />
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group mt-4 mb-0"><a class="btn btn-primary btn-block" href="login.html">Create Account</a></div>
+                                        <div class="form-group mt-4 mb-0"><button type="submit" class="btn btn-primary btn-block">Create Account</button></div>
                                     </form>
                                 </div>
                                 <div class="card-footer text-center">
@@ -71,11 +70,43 @@
 </template>
 
 <script>
+import * as auth from '../../apis/auth'
 export default {
 name: "Register",
     created() {
         document.querySelector('body').style.backgroundColor = '#253545'
     },
+    data(){
+        return {
+            register: {
+                name: '',
+                password: '',
+                email: '',
+                password_confirmation: ''
+            },
+            errors: []
+        }
+    },
+    methods: {
+        userRegister: async  function()
+        {
+           try {
+              await auth.register(this.register)
+               .then(res => {
+                   console.log(res)
+               })
+           }catch (error){
+               if(error.response.status === 422)
+               {
+                   switch (error.response.status){
+                       case 422:
+                           this.errors = error.response.data.errors;
+                           break;
+                   }
+               }
+           }
+        }
+    }
 }
 </script>
 
