@@ -14,3 +14,18 @@ export function isLogedIn(){
     return token != null
 }
 
+export function logout()
+{
+    return api().get('/auth/logout')
+}
+
+
+export function getAccessToken()
+{
+    const token = localStorage.getItem('authenticated')
+    if (token == null){
+        return  null
+    }
+    let access_token = JSON.parse(token)
+    return access_token.access_token
+}

@@ -71,7 +71,7 @@ export default {
             login: {
                 email: '',
                 password: '',
-                remember_me: '',
+                remember_me: false,
             },
             errors: []
         }

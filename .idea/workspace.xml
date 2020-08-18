@@ -22,8 +22,10 @@
     <list default="true" id="61ea6b2b-a855-4de9-88df-1aa2dce52284" name="Default Changelist" comment="install passport and setup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/router/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/apis/apis.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/apis/apis.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/apis/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/apis/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Navbar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/categories/Categories.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/categories/Categories.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +213,7 @@
       <workItem from="1597483555481" duration="15006000" />
       <workItem from="1597548932730" duration="28108000" />
       <workItem from="1597623000801" duration="21287000" />
-      <workItem from="1597741110698" duration="704000" />
+      <workItem from="1597741110698" duration="2500000" />
     </task>
     <task id="LOCAL-00001" summary="install passport and setup">
       <created>1597639430258</created>

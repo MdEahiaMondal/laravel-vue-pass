@@ -120,7 +120,6 @@ export default {
                    this.moreExist = true
                    this.nextPage = res.data.categories.current_page + 1
                }
-               console.log(res)
                this.categories = res.data.categories.data
            }catch (error){
                console.log(error)

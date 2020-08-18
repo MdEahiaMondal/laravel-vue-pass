@@ -18,7 +18,7 @@ import RightSideBar from "../components/RightSideBar";
 import Footer from "../components/Footer";
 export default {
     name: "Home",
-    components: {Footer, RightSideBar, Navbar}
+    components: {Footer, RightSideBar, Navbar},
 }
 </script>
 

@@ -19,7 +19,7 @@
                     <a class="dropdown-item" href="#">Settings</a>
                     <a class="dropdown-item" href="#">Activity Log</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="login.html">Logout</a>
+                    <a class="dropdown-item" href="#" @click.prevent="logout">Logout</a>
                 </div>
             </li>
         </ul>
@@ -27,8 +27,23 @@
 </template>
 
 <script>
+import * as auth from '../apis/auth'
 export default {
-    name: "Navbar"
+    name: "Navbar",
+    methods: {
+        logout: async function ()
+        {
+           try {
+               await auth.logout()
+                   .then(res => {
+                       localStorage.removeItem('authenticated')
+                       this.$router.push('/login')
+                   })
+           }catch (error){
+               console.log(error)
+           }
+        }
+    }
 }
 </script>
 
