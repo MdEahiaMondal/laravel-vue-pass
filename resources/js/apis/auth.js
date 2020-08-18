@@ -29,3 +29,8 @@ export function getAccessToken()
     let access_token = JSON.parse(token)
     return access_token.access_token
 }
+
+export function profile()
+{
+    return api().get('/auth/profile')
+}

@@ -83,6 +83,7 @@ export default {
                 await auth.login(this.login)
                 .then(res => {
                     localStorage.setItem('authenticated',JSON.stringify(res.data))
+                    this.$store.dispatch('getUserProfile', res.data.user)
                     this.$router.push('/admin')
                 })
             }catch (error){
