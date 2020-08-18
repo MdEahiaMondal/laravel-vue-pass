@@ -6,7 +6,6 @@
             <div id="layoutSidenav_content">
                 <router-view></router-view>
                 <footer></footer>
-                <FlashMessage :position="'right top'" style="z-index: 10"/>
             </div>
         </div>
     </div>

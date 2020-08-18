@@ -90,7 +90,19 @@ class AuthController extends Controller
     public function profile(Request  $request)
     {
         if ($request->user()){
-            return response()->json($request->user( ),200);
+            return response()->json($request->user(),200);
+        }else{
+            return response()->json([
+                'message' => 'you are not login',
+                'status_code' => 401
+            ], 401);
+        }
+
+    }
+    public function userRole(Request  $request)
+    {
+        if ($request->user()){
+            return response()->json($request->user()->token()->scopes[0],200);
         }else{
             return response()->json([
                 'message' => 'you are not login',

@@ -34,3 +34,13 @@ export function profile()
 {
     return api().get('/auth/profile')
 }
+
+export function userAccessRole()
+{
+    const token = localStorage.getItem('authenticated')
+    if (token == null){
+        return  null
+    }
+    let role = JSON.parse(token)
+    return role.token_scope
+}

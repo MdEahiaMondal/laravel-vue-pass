@@ -8,6 +8,7 @@ import Home  from "../views/Home";
 import Register from "../views/auth/Register";
 import Login from "../views/auth/Login";
 import ForgotPassword from "../views/auth/ForgotPassword";
+import NotFound from "../views/NotFound";
 
 import * as auth from '../apis/auth'
 
@@ -22,7 +23,15 @@ const routes = [
             },
             {
                 path: 'categories',
-                component: Categories
+                component: Categories,
+                beforeEnter(to, from, next){
+                    console.log(auth.userAccessRole())
+                    if (auth.userAccessRole() === "do_everything"){
+                        next();
+                    }else{
+                        next('/404')
+                    }
+                }
             },
         ],
         beforeEnter(to, from, next){
@@ -58,6 +67,10 @@ const routes = [
     {
         path: '/forgot-password',
         component: ForgotPassword
+    },
+    {
+        path: '/404',
+        component: NotFound
     },
 
 ]
